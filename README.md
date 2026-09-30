@@ -1,35 +1,51 @@
-# SiteLens MVP
+# SiteLens Phase 2
 
-Evidence-based SEO/AEO/Social intelligence platform starter for GitHub + Vercel.
+Evidence-based SEO crawler built with Next.js + TypeScript for GitHub/Vercel.
 
-## Run locally
+## Deploy
 
-1. `npm install`
-2. `npm run dev`
-3. Open `http://localhost:3000`
-4. Enter a public website URL.
+1. Push this project to GitHub.
+2. Import the repository into Vercel.
+3. Framework Preset: **Next.js**
+4. Build Command: `npm run build`
+5. **Output Directory: leave blank / do not override**
+6. Install Command: `npm install`
 
-The MVP currently performs a server-side first-page audit using deterministic checks: title, meta description, H1s, canonical, robots meta, visible word count, links, image alt coverage, viewport, HTTPS and JSON-LD schema.
+`vercel.json` explicitly declares the Next.js framework.
 
-## Architecture
+## Phase 2 features
 
-- Next.js App Router + TypeScript
-- Vercel-friendly server route at `/api/audit`
-- Deterministic audit engine in `lib/audit.ts`
-- Dashboard at `/dashboard`
-- AI/AEO and social connectors intentionally separated for later phases
+- Single-page technical SEO audit
+- Multi-page same-origin crawl
+- Up to 30 pages from the dashboard (API supports up to 50)
+- Crawl depth tracking
+- robots.txt discovery
+- sitemap.xml discovery
+- sitemap URL discovery
+- HTTP status capture
+- titles
+- H1s
+- meta descriptions
+- canonicals
+- visible word counts
+- internal/external links
+- image alt gaps
+- JSON-LD schema types
+- evidence-backed page findings
 
-## Next phases
+## Important validation note
 
-1. Crawl queue + sitemap/robots discovery + multi-page crawl
-2. Lighthouse/PageSpeed and Core Web Vitals
-3. Schema validation and entity graph
-4. AEO question generation + evidence-backed answerability scoring
-5. Social OAuth adapters (Meta, LinkedIn, YouTube, TikTok where supported)
-6. Competitor/visibility tracking
-7. Database/auth/billing
-8. GitHub/Vercel deployment + scheduled audits
+The crawler is deterministic. AI/AEO recommendations are intentionally not presented as measured facts yet. The next phase will build on this crawl data for duplicate detection, indexability, internal-link analysis, content gaps, entity analysis, and AEO/GEO question coverage.
 
-## Validation principle
+## Local development
 
-Every deterministic finding must include evidence from the crawled HTML or a measured external test. AI recommendations should be labeled as recommendations/inferences and never masquerade as measured facts.
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+## Environment variables
+
+No API key is required for the current deterministic audit/crawler.
