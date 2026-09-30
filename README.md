@@ -1,51 +1,33 @@
-# SiteLens Phase 2
+# SiteLens Phase 3 — SEO Intelligence
 
-Evidence-based SEO crawler built with Next.js + TypeScript for GitHub/Vercel.
+Built on the validated Phase 2 crawler.
 
-## Deploy
-
-1. Push this project to GitHub.
-2. Import the repository into Vercel.
-3. Framework Preset: **Next.js**
-4. Build Command: `npm run build`
-5. **Output Directory: leave blank / do not override**
-6. Install Command: `npm install`
-
-`vercel.json` explicitly declares the Next.js framework.
-
-## Phase 2 features
-
-- Single-page technical SEO audit
+## Phase 3 features
 - Multi-page same-origin crawl
-- Up to 30 pages from the dashboard (API supports up to 50)
-- Crawl depth tracking
-- robots.txt discovery
-- sitemap.xml discovery
-- sitemap URL discovery
-- HTTP status capture
-- titles
-- H1s
-- meta descriptions
-- canonicals
-- visible word counts
-- internal/external links
-- image alt gaps
-- JSON-LD schema types
-- evidence-backed page findings
+- robots.txt and sitemap discovery
+- HTTP status / crawl errors
+- indexability from robots + meta robots
+- canonical normalization and cross-page canonical flags
+- duplicate title detection
+- duplicate meta description detection
+- duplicate H1 detection
+- identical visible-content fingerprint detection
+- potential orphan page detection
+- crawl depth flags
+- low-content flags
+- title/meta length review
+- missing H1/title/description
+- image alt-text gaps
+- JSON-LD parse validation
+- evidence-backed prioritized findings
+- crawl health statistics
 
-## Important validation note
+## Vercel
+- Framework: Next.js
+- Build command: `npm run build`
+- Output Directory: leave blank / no override
+- `vercel.json` declares Next.js
+- `tsconfig.json` does NOT use deprecated `baseUrl`
 
-The crawler is deterministic. AI/AEO recommendations are intentionally not presented as measured facts yet. The next phase will build on this crawl data for duplicate detection, indexability, internal-link analysis, content gaps, entity analysis, and AEO/GEO question coverage.
-
-## Local development
-
-```bash
-npm install
-npm run dev
-```
-
-Then open `http://localhost:3000`.
-
-## Environment variables
-
-No API key is required for the current deterministic audit/crawler.
+## Important
+This phase intentionally does not fabricate AEO, AI visibility, or social scores. Those will be separate measurement engines built on top of this crawl data.
