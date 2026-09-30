@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+import { validatePublicUrl } from './url-security';
 
 export type AuditResult = {
   url: string;
@@ -36,10 +37,9 @@ export async function auditUrl(
   input: string,
   timeoutMs = 15000
 ): Promise<AuditResult> {
-  const u = new URL(input);
+  const u = await validatePublicUrl(input);
 
   const controller = new AbortController();
-
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   let res: Response;
@@ -70,7 +70,6 @@ export async function auditUrl(
   const $ = cheerio.load(html);
 
   const title = $('title').first().text().trim();
-
   const description =
     $('meta[name="description"]').attr('content')?.trim() || '';
 
@@ -96,7 +95,6 @@ export async function auditUrl(
 
   let internalLinks = 0;
   let externalLinks = 0;
-
   const origin = u.origin;
 
   $('a[href]').each((_, e) => {
@@ -140,9 +138,7 @@ export async function auditUrl(
     } catch {}
   });
 
-  const hasViewport = !!$(
-    'meta[name="viewport"]'
-  ).length;
+  const hasViewport = !!$('meta[name="viewport"]').length;
 
   const issues: AuditResult['issues'] = [];
 
