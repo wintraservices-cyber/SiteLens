@@ -1,8 +1,6 @@
 {
-  "name": "sitelens-mvp",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {"dev":"next dev","build":"next build","start":"next start","lint":"next lint"},
-  "dependencies": {"@ai-sdk/openai":"latest","ai":"latest","cheerio":"latest","next":"latest","react":"latest","react-dom":"latest","zod":"latest"},
-  "devDependencies": {"@types/node":"latest","@types/react":"latest","@types/react-dom":"latest","typescript":"latest","tailwindcss":"latest","@tailwindcss/postcss":"latest","postcss":"latest"}
+  "name":"sitelens-mvp","version":"0.1.0","private":true,
+  "scripts":{"dev":"next dev","build":"next build","start":"next start","lint":"next lint"},
+  "dependencies":{"cheerio":"latest","next":"latest","react":"latest","react-dom":"latest","zod":"latest"},
+  "devDependencies":{"@types/node":"latest","@types/react":"latest","@types/react-dom":"latest","typescript":"latest","tailwindcss":"latest","@tailwindcss/postcss":"latest","postcss":"latest"}
 }
