@@ -1,4 +1,4 @@
-# SiteLens Phase 4.1 — Stability & UX Cleanup
+# SiteLens Phase 4.1.1 — Type-safe Stability & UX Cleanup
 
 Clean baseline built from the validated Phase 3 direction.
 
@@ -30,3 +30,9 @@ Vercel:
 
 ## History
 History remains browser-local in this cleanup build. Persistent database history is the next architectural step before advanced AEO/GEO reporting.
+
+## Type safety fixes
+- Explicit crawl queue tuple typing
+- AuditIssue shape aligned with report findings
+- AuditResult includes wordCount
+- Dashboard uses AuditResult.url rather than a nonexistent https property
