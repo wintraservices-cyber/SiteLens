@@ -36,3 +36,7 @@ History remains browser-local in this cleanup build. Persistent database history
 - AuditIssue shape aligned with report findings
 - AuditResult includes wordCount
 - Dashboard uses AuditResult.url rather than a nonexistent https property
+
+
+## Phase 4.1.3
+Clean TypeScript syntax for shared audit types; removed stale root duplicates.

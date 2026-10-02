@@ -1,4 +1,5 @@
 'use client';
+import type { AuditResult } from '@/lib/audit';
 import {useEffect,useMemo,useState} from 'react';import type {AuditResult} from '@/lib/audit';
 type P={url:string;status:number;title:string;h1s:string[];description:string;canonical:string|null;wordCount:number;internalLinks:string[];externalLinks:string[];images:number;imagesMissingAlt:number;schemas:string[];depth:number;indexable:boolean;error?:string};type F={severity:'high'|'medium'|'low';category:string;title:string;evidence:string;fix:string;urls:string[]};type C={pages:P[];sitemapFound:boolean;robotsFound:boolean;sitemapUrls:string[];findings:F[];stats:Record<string,number>};type H={url:string;hostname:string;score:number;issues:number;timestamp:string;title:string;pages?:number};const KEY='sitelens:audit-history:v1';
 function history(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch{return[]}}function save(x:H){const a=[x,...history()].slice(0,50);localStorage.setItem(KEY,JSON.stringify(a));return a}
