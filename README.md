@@ -1,29 +1,42 @@
-# SiteLens Phase 4 — UX, Audit Reliability & History
+# SiteLens Phase 4.1.1 — Type-safe Stability & UX Cleanup
 
-Built on the validated Phase 3 SEO intelligence engine.
+Clean baseline built from the validated Phase 3 direction.
 
-## Phase 4 improvements
-- Press Enter to run an audit from the homepage
-- Initial audit has a bounded 30-second client timeout
-- Server audit has a 15-second website-response timeout
-- Live audit phase/progress UI with expected 5–15 second target
-- No more indefinite "LIVE AUDIT" screen
-- Clear retry state on timeout/failure
-- Clickable SiteLens/site name returns to home
-- New audit button from reports
-- Save Report downloads an evidence JSON report
-- Audit automatically records history in the browser
-- Historical audit table per site
-- Basic score/issue trend comparison against the previous saved audit
-- Full crawl shows elapsed time and an explicit 30–120 second target
-- Crawl endpoint has a 120-second maximum duration
+## Included
+- Enter-to-audit form submission
+- Bounded 30-second initial audit timeout
+- Audit elapsed time and typical completion guidance
+- Full crawl elapsed time
+- New Audit navigation
+- Clickable website name back to home
+- Save Report JSON
+- Browser audit history and previous-score comparison
+- Phase 3-style crawl findings
+- robots.txt and sitemap discovery
+- duplicate title/meta checks
+- indexability, missing title/H1/description, image alt and low-content findings
+- Next.js/Vercel configuration fixes
+- no deprecated TypeScript baseUrl
+- clean app/lib structure
 
-## Historical storage note
-Phase 4 uses browser localStorage so the MVP works on Vercel without a database. History is tied to the browser/device and is not yet shared across users or devices. A later production phase should move history to a persistent database (for example Supabase/Postgres) with accounts and site/project records.
+## Upload
+Replace the repository contents with this package. Do not copy obsolete root-level `audit.ts`, `page.tsx`, `route.ts`, `globals.css`, `layout.tsx`, or similarly named duplicates outside `app/` and `lib/`.
 
-## Vercel
+Vercel:
 - Framework: Next.js
-- Build Command: `npm run build`
-- Output Directory: blank / no override
-- `vercel.json` declares Next.js
-- `tsconfig.json` does not use deprecated `baseUrl`
+- Build: npm run build
+- Output Directory: blank
+- Install: npm install
+
+## History
+History remains browser-local in this cleanup build. Persistent database history is the next architectural step before advanced AEO/GEO reporting.
+
+## Type safety fixes
+- Explicit crawl queue tuple typing
+- AuditIssue shape aligned with report findings
+- AuditResult includes wordCount
+- Dashboard uses AuditResult.url rather than a nonexistent https property
+
+
+## Phase 4.1.3
+Clean TypeScript syntax for shared audit types; removed stale root duplicates.

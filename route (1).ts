@@ -1,0 +1,2 @@
+import {NextRequest,NextResponse} from 'next/server'; import {auditUrl} from '@/lib/audit'; export const runtime='nodejs';
+export async function POST(req:NextRequest){try{const {url}=await req.json();if(typeof url!=='string')return NextResponse.json({error:'URL is required'},{status:400});const normalized=url.includes('://')?url:`https://${url}`;new URL(normalized);return NextResponse.json(await auditUrl(normalized));}catch(e){return NextResponse.json({error:e instanceof Error?e.message:'Audit failed'},{status:500});}}
