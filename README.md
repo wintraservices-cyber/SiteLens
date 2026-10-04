@@ -1,4 +1,4 @@
-# SiteLens Phase 4 — UX, Audit Reliability & History
+# SiteLens Phase 4.2 — Core Engine Consolidation & Crawl Hardening
 
 Built on the validated Phase 3 SEO intelligence engine.
 
